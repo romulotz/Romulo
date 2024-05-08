@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react';
+import './App.css'
+import Nav from "./Nav";
 
-function App() {
-  return (
+const App = () => {
+  const [activeTab, setActiveTab] = useState('items');
+  return(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav
+      activeTab={activeTab}
+      onTabChange={setActiveTab}
+      />
+      <main className='App-content'>
+        <Content tab={activeTab}/>
+      </main>
     </div>
-  );
+  )
+}
+const Content = ({tab}) => {
+switch(tab){
+  case 'items':
+    return <span>The Items</span>
+    case 'cart':
+      return <span>The Cart</span>
+      default :
+      break;
+}
+
 }
 
 export default App;
