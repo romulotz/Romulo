@@ -1,5 +1,5 @@
 import React from 'react';
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
 import './ItemPage.css'
 import Item from './Item';
 
@@ -8,15 +8,17 @@ return(
   <ul className='ItemPage-items'>
     {items.map(item=>
   <li key={item.id} className='ItemPage-item'>
-    <Item item={item} onAddToCart={()=>onAddToCart(item)}/>
+    <Item item={item}>
+      <button className="Item-addToCart" onClick={()=>onAddToCart(item)}>AddToCart</button>
+    </Item>
   </li>
 )}
   </ul>
 );
 }
 
-ItemPage.proptype = {
-  items:Proptypes.array.isRequired
+ItemPage.PropType = {
+  items:PropTypes.array.isRequired
 };
 
 export default ItemPage;
