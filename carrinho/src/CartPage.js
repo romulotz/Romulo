@@ -10,10 +10,10 @@ return(
   <li key={item.id} className='CartPage-item'>
     <Item item={item}>
     <div className='CartItem-controls'>
-        <button className='CarItem-removeOne'
+        <button className='CartItem-removeOne'
         onClick={()=>onRemoveOne(item)}>-</button>
-        <span className='CartItem-count'>{item.count}</span>
-        <button className='CarItem-addOne'
+        <span className='CartItemcx'>{item.count}</span>
+        <button className='CartItem-addOne'
         onClick={()=>onAddOne(item)}>+</button>
     </div>
     </Item>
